@@ -31,6 +31,9 @@ model = load_model('psicopatoLog_IA/saved_model/all_emotions.h5')
    
 cam = cv.VideoCapture(0)
 
+def retcont(self):
+    return cont
+
 i = 0
 while True:
     i+=1
@@ -77,12 +80,13 @@ while True:
     if cv.getWindowProperty('cam', WND_PROP_VISIBLE) == 0:
         print('-------------------')
         #print(np.argmax(self.cont))
-        print('most predominant emotion: ' + CATEGORIES[np.argmax(np.array(cont))])
+        print(np.argmax(np.array(cont)))
             
         aux_cont = 0
         for category in CATEGORIES:
-            print(category + ': ' + str(cont[aux_cont]))
+            print(str(cont[aux_cont]))
             aux_cont += 1
                 
-        break
+        retcont()
+
   
